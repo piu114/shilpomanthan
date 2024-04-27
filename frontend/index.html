@@ -1,0 +1,181 @@
+<html>
+
+<head>
+	<title>Home Page</title>
+	<!-- css -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link href="./styles//style.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg  fixed-top navbar-c">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">
+				<img src="./images/l1.jpg" />
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link nav-c " href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link nav-c " href="#exhibition" data-bs-toggle="modal"
+							data-bs-target="#exampleModal">Exibition</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link nav-c" href="./login.html">Login/Sign Up</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle nav-c" href="#" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							My Account
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Orders</a></li>
+							<li><a class="dropdown-item" href="#">Account Details</a></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" href="#">Logout</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link nav-c" aria-current="page" href="#aboutUs">About Us</a>
+					</li>
+				</ul>
+				<form class="d-flex" role="search">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Search</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+	<div id="carouselExampleCaptions" class="carousel slide">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+				aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+				aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+				aria-label="Slide 3"></button>
+		</div>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="./images/s1.jpg" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>HANDICRAFTS OF BENGAL</h5>
+					<p>Best of the handicrafts all over Bengal.</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="./images/slider1.jpg" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>HAND PAINTINGS OF BENGAL</h5>
+					<p>Hope you'll have blissful exploration of handpaintings from all over Bengal.</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="./images/slider3.jpeg" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>POTTERY PAINTINGS OF BENGAL</h5>
+					<p>Watch Bengal's pride at one place.</p>
+				</div>
+			</div>
+		</div>
+		<!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+			data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+			data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button> -->
+	</div>
+	<div class="about-us" id="aboutUs">
+		<div class="accordion" id="accordionExample">
+			<div class="accordion-item">
+				<h2 class="accordion-header">
+					<button class="accordion-button" type="button" data-bs-toggle="collapse"
+						data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						<b>ABOUT US</b>
+					</button>
+				</h2>
+				<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+					<div class="accordion-body">
+						<strong>West Bengal is renowned for its rich tradition of handicrafts, a testament to the
+							state's cultural vibrancy.</strong> The exquisite artistry of Bengal's handicrafts,
+						including
+						terracotta pottery, kantha embroidery, and dokra metal casting, reflects the skilled
+						craftsmanship passed down through generations. These unique creations not only captivate
+						with their intricate designs but also contribute significantly to West Bengal's cultural
+						identity, garnering widespread acclaim and popularity both within India and on the global
+						stage.
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- exhibition modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- <div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Exhibition Details</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div> -->
+				<div class="modal-body">
+					<div class="card text-center">
+						<div class="card-header">
+							<div class="row">
+								<div class="col">
+									<i class="bi bi-bag-heart-fill"></i>
+								</div>
+								<div class="col-6">
+									<marquee width="100%" direction="right">Exhibition is going on!</marquee>
+								</div>
+								<div class="col">
+									<i class="bi bi-bag-heart-fill"></i>
+								</div>
+							</div>
+
+
+						</div>
+						<div class="card-body">
+							<h5 class="card-title">I am exhibition title!</h5>
+							<p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting
+								industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+							</p>
+							<a href="#" class="btn btn-primary">Details</a>
+							<button type="button" class="btn btn-success">I'm interested!</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						</div>
+						<div class="card-footer text-body-secondary">
+							February 30, 2024
+						</div>
+					</div>
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+	<!-- javascript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

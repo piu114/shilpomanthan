@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login/signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="./styles//style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg   navbar-c">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./images/l1.jpg" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-c " href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-c " href="#exhibition" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Exibition</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-c" href="./login.html">Login/Sign Up</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-c" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            My Account
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Orders</a></li>
+                            <li><a class="dropdown-item" href="#">Account Details</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-c" aria-current="page" href="#aboutUs">About Us</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div style="clear: both;"></div>
+    <div class="bg-img">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remember me?</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!--sign up -->
+    <div class="row">
+        <form class="mx-auto rowclass">
+            <div class="colclass">
+                <label for="fname" class="form-label">First Name*</label>
+                <input type="text" class="form-control ipField" id="fname">
+                <span class="errorMsg">First name is mandatory</span>
+            </div>
+            <div class="colclass">
+                <label for="lname" class="form-label">Last Name*</label>
+                <input type="text" class="form-control ipField" id="lname">
+                <span class="errorMsg">Last name is mandatory</span>
+            </div>
+            <div class="colclass">
+                <label for="add1" class="form-label">Address</label>
+                <input type="text" class="form-control ipField" id="add1" placeholder="1234 Main St">
+            </div>
+            <div class="colclass">
+                <label for="add2" class="form-label">Address 2</label>
+                <input type="text" class="form-control ipField" id="add2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="colclass">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control ipField" id="city">
+            </div>
+            <div class="colclass">
+                <label for="state" class="form-label">State</label>
+                <select id="state" class="form-select ipField">
+                    <option selected>Choose state</option>
+                    <option>WEST BENGAL</option>
+                    <option>MAHARASHTRA</option>
+                    <option>DELHI</option>
+                    <option>BANGALURU</option>
+                </select>
+            </div>
+            <div class="colclass">
+                <label for="zip" class="form-label">Zip</label>
+                <input type="text" class="form-control ipField" id="zip">
+            </div>
+            <div class="colclass">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control ipField" id="email">
+            </div>
+            <div class="colclass">
+                <label for="pass" class="form-label">Password</label>
+                <input type="password" class="form-control ipField" id="pass">
+            </div>
+            <div class="colclass">
+                <label for="cpass" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control ipField" id="cpass">
+            </div>
+            <div style="clear: both;"></div>
+            <div class="signupclass">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Check me out
+                    </label>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+            <div class="signupclass text-center">
+                <button type="button" class="btn btn-primary" onclick="validateForm()">Sign up</button>
+            </div>
+        </form>
+    </div>
+    <style>
+        .errorClass {
+            border-color: red;
+        }
+
+        .errorMsg {
+            font-size: 12px;
+            color: red;
+            visibility: hidden;
+        }
+
+        .errorClass+.errorMsg {
+            visibility: visible;
+        }
+    </style>
+    <!--script-->
+    <script>
+        function validateForm() {
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let add1 = document.getElementById('add1').value;
+            let add2 = document.getElementById('add2').value;
+            let email = document.getElementById('email').value;
+            let city = document.getElementById('city').value;
+            let state = document.getElementById('state').value;
+            let zip = document.getElementById('zip').value;
+            let password = document.getElementById('pass').value;
+            let cpass = document.getElementById('cpass').value;
+            let errorCounter = 0;
+
+            let elemList = document.getElementsByClassName('ipField');
+            for (let i = 0; i < elemList.length; i++) {
+                elemList[i].classList.remove('errorClass');
+            }
+
+            if (!fname || fname.length < 3) {
+                document.getElementById("fname").classList.add('errorClass');
+                errorCounter++;
+            }
+            if (!lname || lname.length < 3) {
+                errorCounter++;
+                document.getElementById('lname').classList.add('errorClass');
+                // alert('Please enter a valid last name');
+                // return;
+            }
+            if (!add1 || add1.length < 2) {
+                errorCounter++;
+                document.getElementById('add1').classList.add('errorClass');
+                // alert('Please enter a valid phone number');
+                // return;
+            }
+            if (!add2 || add2.length < 2) {
+                errorCounter++;
+                document.getElementById('add2').classList.add('errorClass');
+                // alert('Please enter a valid phone number');
+                // return;
+            }
+            if (!city || city.length < 1) {
+                errorCounter++;
+                document.getElementById('city').classList.add('errorClass');
+                // alert('Please enter a valid city name');
+                // return;
+            }
+            if (!state || state.length < 2) {
+                errorCounter++;
+                document.getElementById('state').classList.add('errorClass');
+                // alert('Please enter a valid phone number');
+                // return;
+            }
+
+
+            if (!zip || zip.length != 6) {
+                errorCounter++;
+                document.getElementById('zip').classList.add('errorClass');
+                // alert('Please enter a valid zip code');
+                // return;
+            } else if (!Number(zip)) {
+                errorCounter++;
+                document.getElementById('zip').classList.add('errorClass');
+                // alert('Please enter a valid zip code');
+                // return;
+            }
+            if (!password || password.length < 8 || password.length > 12) {
+                errorCounter++;
+                document.getElementById('pass').classList.add('errorClass');
+                // alert('Please enter a valid password');
+                // return;
+            }
+            if (!cpass || cpass.length < 8 || cpass.length > 12) {
+                errorCounter++;
+                document.getElementById('cpass').classList.add('errorClass');
+                // alert('Please enter a valid password');
+                // return;
+            }
+            else if (password != cpass) {
+                errorCounter++;
+                document.getElementById('cpass').classList.add('errorClass');
+                // alert('password and confirm password should be same');
+                // return;
+            }
+            if (!email || email.length < 1) {
+                errorCounter++;
+                document.getElementById('email').classList.add('errorClass');
+                // alert('Please enter a valid email');
+                // return;
+            }
+            else {
+                let regex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
+                let result = regex.test(userEmail);
+                if (!result) {
+                    errorCounter++;
+                    document.getElementById('email').classList.add('errorClass');
+                }
+            }
+
+            if (errorCounter > 0) {
+                alert("Please fill the form with valid data. Error count: " + errorCounter);
+            }
+            else {
+                // print all data in console log
+                for (let i = 0; i < elemList.length; i++) {
+                    console.log(elemList[i].value)
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

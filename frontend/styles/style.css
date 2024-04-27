@@ -1,0 +1,45 @@
+.navbar-brand > img {
+    max-height: 100px;
+}
+.card-header{
+    color: brown;
+    font-family: 'Times New Roman', Times, serif;
+}
+.navbar-c{
+    background-color:aliceblue;
+    font-weight: bold;
+    font-size: 25px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+/*color of nav bar*/
+.nav-c{
+    color: blueviolet;
+}
+/*or line bw signup*/
+.mid{
+    padding-left: 43px;
+}
+
+.bg-img{
+    /* background-image: url('../images/slider3.jpeg'); */
+    background-color: wheat;
+    border: 20px;
+    border-color: black;
+
+
+}
+.colclass{
+  width:50%;
+  float: left;
+  padding: 7px;
+}
+.rowclass{
+    width: 450px;
+}
+.signupclass{
+    width:100%;
+    float:none;
+}
+.row{
+    background-color: aqua;
+}
