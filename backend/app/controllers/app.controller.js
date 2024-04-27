@@ -1,6 +1,5 @@
 const usersModel = require('../models/users.model');
 
-
 exports.createUser = (req, res) => {
 
   const newUser = new usersModel({
