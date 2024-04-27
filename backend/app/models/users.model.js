@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const AppSchema = mongoose.Schema({
+const AppSchema = new mongoose.Schema({
   fname: String,
   lname: String,
   address1: String,
