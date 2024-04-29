@@ -1,4 +1,4 @@
-// Replace the uri string with your connection string.
+
 const uri = "mongodb+srv://ankita:ankita@shilpomanthan.oaicert.mongodb.net/shilpomanthan";
 
 const express = require("express");
