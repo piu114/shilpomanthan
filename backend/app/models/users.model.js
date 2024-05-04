@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const AppSchema = new mongoose.Schema({
+  userid:String,
   fname: String,
   lname: String,
   address1: String,
@@ -9,6 +10,7 @@ const AppSchema = new mongoose.Schema({
   state: String,
   zip: String,
   email: String,
+  phoneno:String,
   password: String
 });
 
