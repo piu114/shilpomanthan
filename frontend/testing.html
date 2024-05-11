@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .formCol {
+            max-width: 300px;
+        }
+
+        .formCol,
+        .tableCol {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="formCol">
+        <form name="userForm" id="userForm">
+            <div>
+                <div>userid</div>
+                <div><input type="text" name="userid" id="userid"></div>
+            </div>
+            <div>
+                <div>fname</div>
+                <div><input type="text" name="fname" id="fname"></div>
+            </div>
+            <div>
+                <div>lname</div>
+                <div><input type="text" name="lname" id="lname"></div>
+            </div>
+            <div>
+                <div>address1</div>
+                <div><textarea name="address1" id="address1"></textarea></div>
+            </div>
+            <div>
+                <div>address2</div>
+                <div><textarea name="address2" id="address2"></textarea></div>
+            </div>
+            <div>
+                <div>city</div>
+                <div><input type="text" name="city" id="city"></div>
+            </div>
+            <div>
+                <div>state</div>
+                <div><input type="text" name="state" id="state"></div>
+            </div>
+            <div>
+                <div>zip</div>
+                <div><input type="text" name="zip" id="zip"></div>
+            </div>
+            <div>
+                <div>email</div>
+                <div><input type="email" name="email" id="email"></div>
+            </div>
+            <div>
+                <div>phoneno</div>
+                <div><input type="text" name="phoneno" id="phoneno"></div>
+            </div>
+            <div>
+                <div>password</div>
+                <div><input type="password" name="password" id="password"></div>
+            </div>
+            <div>
+                <div>----------------------------------------</div>
+                <div><input type="button" onclick="submitForm()" value="Submit"></div>
+            </div>
+        </form>
+    </div>
+    <div class="tableCol">
+        <table border="1" id="tableBody">
+
+        </table>
+    </div>
+    <script>
+        $(document).ready(function () {
+            fetchAllData();
+        })
+        function fetchAllData() {
+            $.get("http://localhost:8080/user/get-all",
+                async function (data, status) {
+                    console.log("Data: ", data);
+                    console.log("Status: ", status);
+                    if (data && data.length) {
+                        var tableBody = "<tr>"
+                            + "<td>userid</td>"
+                            + "<td>fname</td>"
+                            + "<td>lname</td>"
+                            + "<td>address1</td>"
+                            + "<td>address2</td>"
+                            + "<td>city</td>"
+                            + "<td>state</td>"
+                            + "<td>zip</td>"
+                            + "<td>email</td>"
+                            + "<td>phoneno</td>"
+                            + "<td>password</td>"
+                            + "</tr>";
+                        await data.forEach(element => {
+                            tableBody += "<tr>";
+                            tableBody += "<td>" + element.userid + "</td>";
+                            tableBody += "<td>" + element.fname + "</td>";
+                            tableBody += "<td>" + element.lname + "</td>";
+                            tableBody += "<td>" + element.address1 + "</td>";
+                            tableBody += "<td>" + element.address2 + "</td>";
+                            tableBody += "<td>" + element.city + "</td>";
+                            tableBody += "<td>" + element.state + "</td>";
+                            tableBody += "<td>" + element.zip + "</td>";
+                            tableBody += "<td>" + element.email + "</td>";
+                            tableBody += "<td>" + element.phoneno + "</td>";
+                            tableBody += "<td>" + element.password + "</td>";
+                            tableBody += "</tr>";
+                        });
+                        $("#tableBody").html(tableBody);
+                    }
+                });
+        }
+        function submitForm() {
+            var formData = {
+                "userid": $("#userid").val(),
+                "fname": $("#fname").val(),
+                "lname": $("#lname").val(),
+                "address1": $("#address1").val(),
+                "address2": $("#address2").val(),
+                "city": $("#city").val(),
+                "state": $("state").val(),
+                "zip": $("#zip").val(),
+                "email": $("#email").val(),
+                "phoneno": $("#phoneno").val(),
+                "password": $("#password").val()
+            }
+            $.post("http://localhost:8080/user/create",
+                formData,
+                function (data, status) {
+                    console.log("Data: ", data);
+                    console.log("Status: ", status);
+                    fetchAllData();
+                });
+        }
+    </script>
+</body>
+
+</html>
