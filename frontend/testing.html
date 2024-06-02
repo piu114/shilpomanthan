@@ -19,6 +19,7 @@
 <body>
     <div class="formCol">
         <form name="userForm" id="userForm">
+
             <div>
                 <div>userid</div>
                 <div><input type="text" name="userid" id="userid"></div>
@@ -70,50 +71,56 @@
         </form>
     </div>
     <div class="tableCol">
+        <div><input type="text" placeholder="enter userid" id="searchUserId"> <input type="button"
+                onclick="searchUser()" value="Search"></div>
         <table border="1" id="tableBody">
-
         </table>
     </div>
     <script>
         $(document).ready(function () {
             fetchAllData();
         })
+        async function builtTable(data) {
+            if (data && data.length) {
+                var tableBody = "<tr>"
+                    + "<td>userid</td>"
+                    + "<td>fname</td>"
+                    + "<td>lname</td>"
+                    + "<td>address1</td>"
+                    + "<td>address2</td>"
+                    + "<td>city</td>"
+                    + "<td>state</td>"
+                    + "<td>zip</td>"
+                    + "<td>email</td>"
+                    + "<td>phoneno</td>"
+                    + "<td>password</td>"
+                    + "<td>action</td>"
+                    + "</tr>";
+                await data.forEach(element => {
+                    tableBody += "<tr>";
+                    tableBody += "<td>" + element.userid + "</td>";
+                    tableBody += "<td>" + element.fname + "</td>";
+                    tableBody += "<td>" + element.lname + "</td>";
+                    tableBody += "<td>" + element.address1 + "</td>";
+                    tableBody += "<td>" + element.address2 + "</td>";
+                    tableBody += "<td>" + element.city + "</td>";
+                    tableBody += "<td>" + element.state + "</td>";
+                    tableBody += "<td>" + element.zip + "</td>";
+                    tableBody += "<td>" + element.email + "</td>";
+                    tableBody += "<td>" + element.phoneno + "</td>";
+                    tableBody += "<td>" + element.password + "</td>";
+                    tableBody += "<td> <input type='button' onclick= deleteUser('" + element.userid + "') value='DELETE'><input type='button' onclick= editUser('" + element.userid + "') value='EDIT'></td>";
+                    tableBody += "</tr>";
+                });
+                $("#tableBody").html(tableBody);
+            }
+        }
         function fetchAllData() {
             $.get("http://localhost:8080/user/get-all",
                 async function (data, status) {
                     console.log("Data: ", data);
                     console.log("Status: ", status);
-                    if (data && data.length) {
-                        var tableBody = "<tr>"
-                            + "<td>userid</td>"
-                            + "<td>fname</td>"
-                            + "<td>lname</td>"
-                            + "<td>address1</td>"
-                            + "<td>address2</td>"
-                            + "<td>city</td>"
-                            + "<td>state</td>"
-                            + "<td>zip</td>"
-                            + "<td>email</td>"
-                            + "<td>phoneno</td>"
-                            + "<td>password</td>"
-                            + "</tr>";
-                        await data.forEach(element => {
-                            tableBody += "<tr>";
-                            tableBody += "<td>" + element.userid + "</td>";
-                            tableBody += "<td>" + element.fname + "</td>";
-                            tableBody += "<td>" + element.lname + "</td>";
-                            tableBody += "<td>" + element.address1 + "</td>";
-                            tableBody += "<td>" + element.address2 + "</td>";
-                            tableBody += "<td>" + element.city + "</td>";
-                            tableBody += "<td>" + element.state + "</td>";
-                            tableBody += "<td>" + element.zip + "</td>";
-                            tableBody += "<td>" + element.email + "</td>";
-                            tableBody += "<td>" + element.phoneno + "</td>";
-                            tableBody += "<td>" + element.password + "</td>";
-                            tableBody += "</tr>";
-                        });
-                        $("#tableBody").html(tableBody);
-                    }
+                    builtTable(data);
                 });
         }
         function submitForm() {
@@ -137,6 +144,53 @@
                     console.log("Status: ", status);
                     fetchAllData();
                 });
+        }
+        function deleteUser(userid) {
+            if (confirm('Do you want to delete this user ?')) {
+                $.ajax({
+                    url: "http://localhost:8080/user/delete/" + userid,
+                    type: 'DELETE',
+                    success: function (result) {
+                        console.log("Results: ", result);
+                        fetchAllData();
+                    }
+                });
+            } else {
+                alert('Why did you press cancel? You should have confirmed');
+            }
+
+        }
+        function searchUser() {
+            var userId = $("#searchUserId").val();
+            $.ajax({
+                url: "http://localhost:8080/user/search-all-users/" + userId,
+                type: 'GET',
+                success: function (result) {
+                    console.log("Results: ", result);
+                    builtTable([result]);
+                }
+            });
+
+        }
+        function editUser(userid) {
+            $.ajax({
+                url: "http://localhost:8080/user/search-all-users/" + userid,
+                type: 'GET',
+                success: function (result) {
+                    console.log("Results: ", result);
+                    $("#userid").val(result.userid);
+                    $("#fname").val(result.fname);
+                    $("#lname").val(result.lname);
+                    $("#address1").val(result.address1);
+                    $("#address2").val(result.address2);
+                    $("#city").val(result.city);
+                    $("#state").val(result.state);
+                    $("#zip").val(result.zip);
+                    $("#email").val(result.email);
+                    $("#phoneno").val(result.phoneno);
+                    $("#password").val(result.password);
+                }
+            });
         }
     </script>
 </body>
