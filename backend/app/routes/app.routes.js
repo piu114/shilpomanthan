@@ -6,4 +6,5 @@ module.exports = (app) => {
     app.get("/user/search-all-users/:userid", App.searchUsers);
     app.put("/user/update/:userid",App.updateUser);
     app.delete("/user/delete/:userid", App.deleteUser);
+    app.post("/user/login-user" , App.loginUser);
   };

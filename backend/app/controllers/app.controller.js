@@ -127,4 +127,18 @@ exports.updateUser = (req, res) => {
         message: "Error updating message with id " + req.params.userid,
       });
     });
+
 };
+
+exports.loginUser = ( req,res ) => {
+  usersModel.findOne({ userid: req.body.userid , password: req.body.password})
+  .then((data) => {
+    res.send(data);
+  })
+  .catch((err) => {
+    res.status(500).send({
+      message:
+        err.message || "userid and password donot match",
+    });
+  }); 
+}

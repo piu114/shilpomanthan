@@ -69,6 +69,17 @@
                 <div><input type="button" onclick="submitForm()" value="Submit"></div>
             </div>
         </form>
+
+        <form>
+            <div class="login">
+                <div><input type="text" name="useridlogin" placeholder="enter userid" id="useridlogin"></div>
+                <div><input type="password" name="passwordlogin" placeholder="enter password" id="passwordlogin" ></div>
+
+            </div>
+            <div>
+                <div><input type="button" onclick="submitLogin()" value="Login"> </div>
+            </div>
+        </form>
     </div>
     <div class="tableCol">
         <div><input type="text" placeholder="enter userid" id="searchUserId"> <input type="button"
@@ -191,6 +202,20 @@
                     $("#password").val(result.password);
                 }
             });
+        }
+
+        function submitLogin(){
+            var formData={
+                "userid": $("#useridlogin").val(),
+                "password": $("#passwordlogin").val()
+            }
+            
+            $.post("http://localhost:8080/user/login-user",
+                formData,
+                function (data, status) {
+                    console.log("Data: ", data);
+                    console.log("Status: ", status);
+                });
         }
     </script>
 </body>
