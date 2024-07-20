@@ -17,6 +17,9 @@
 </head>
 
 <body>
+
+
+
     <div class="formCol">
         <form name="userForm" id="userForm">
 
@@ -70,10 +73,10 @@
             </div>
         </form>
 
-        <form>
+        <form id="loginForm">
             <div class="login">
                 <div><input type="text" name="useridlogin" placeholder="enter userid" id="useridlogin"></div>
-                <div><input type="password" name="passwordlogin" placeholder="enter password" id="passwordlogin" ></div>
+                <div><input type="password" name="passwordlogin" placeholder="enter password" id="passwordlogin"></div>
 
             </div>
             <div>
@@ -81,15 +84,32 @@
             </div>
         </form>
     </div>
-    <div class="tableCol">
+    <div class="tableCol" id="tablecol">
         <div><input type="text" placeholder="enter userid" id="searchUserId"> <input type="button"
                 onclick="searchUser()" value="Search"></div>
         <table border="1" id="tableBody">
         </table>
     </div>
+    <div id="logout">
+        <div><input type="button" onclick="logOut()" value="logout"></div>
+    </div>
+
+
+
+
     <script>
         $(document).ready(function () {
-            fetchAllData();
+            var loggedinUser = sessionStorage.getItem("userid");
+            if (loggedinUser === null) {
+                $('#logout').hide();
+                $('#tablecol').hide();
+            }
+            else {
+                $('#userForm').hide();
+                $('#loginForm').hide();
+                fetchAllData();
+            }
+            
         })
         async function builtTable(data) {
             if (data && data.length) {
@@ -200,22 +220,37 @@
                     $("#email").val(result.email);
                     $("#phoneno").val(result.phoneno);
                     $("#password").val(result.password);
+                    $('#userForm').show();
                 }
             });
         }
 
-        function submitLogin(){
-            var formData={
+        function submitLogin() {
+            var formData = {
                 "userid": $("#useridlogin").val(),
                 "password": $("#passwordlogin").val()
             }
-            
+
             $.post("http://localhost:8080/user/login-user",
                 formData,
                 function (data, status) {
-                    console.log("Data: ", data);
-                    console.log("Status: ", status);
+                    if (data && data.userid) {
+                        console.log("Data: ", data);
+                        console.log("Status: ", status);
+
+                        sessionStorage.setItem("userid", data.userid);
+                        window.location.reload();
+                    }
+                    else {
+                        console.log("userid and password doesnot match");
+                    }
                 });
+
+        }
+
+        function logOut() {
+            sessionStorage.removeItem("userid");
+            window.location.reload();
         }
     </script>
 </body>

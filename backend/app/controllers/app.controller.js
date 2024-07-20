@@ -133,7 +133,16 @@ exports.updateUser = (req, res) => {
 exports.loginUser = ( req,res ) => {
   usersModel.findOne({ userid: req.body.userid , password: req.body.password})
   .then((data) => {
+    if(data && data.userid){
     res.send(data);
+  } else
+    {
+      res.send({
+        message:
+           "userid and password donot match",
+      });
+    }
+
   })
   .catch((err) => {
     res.status(500).send({
